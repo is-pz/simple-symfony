@@ -3,7 +3,9 @@
 
 namespace App\Controller;
 
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,6 +17,8 @@ class PageController extends AbstractController
     {
         $search = $request->get('search');
 
-        return new Response("Welcome to the homepage " . $search);
+        return $this->render('home.html.twig', [
+            'search' => $search
+        ]);
     }
 }
