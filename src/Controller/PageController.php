@@ -22,7 +22,7 @@ class PageController extends AbstractController
         $form = $this->createForm(CommentType::class);
         $form->handleRequest($request);
 
-        if( $form->isSubmitted() ){
+        if( $form->isSubmitted() && $form->isValid() ){
             $entityManager->persist($form->getData());
             $entityManager->flush();
 
